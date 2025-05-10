@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Webpage with Folium Map and HTML Content</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #map {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        #content {
+            position: absolute;
+            top: 10px;
+            /* Adjust the top position as needed */
+            left: 10px;
+            /* Adjust the left position as needed */
+            background-color: white;
+            padding: 10px;
+        }
+
+        .results-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 350px;
+            padding: 8px 15px;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            z-index: 1;
+        }
+
+        .legend-panel {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #3333ff;
+        }
+
+        .label {
+            margin: 0 0 2px 0;
+            font-weight: bold;
+        }
+
+        .number {
+            margin: 0 0 15px 0;
+            color: #bf0f19;
+            font-weight: bold;
+        }
+
+        .sub-text {
+            margin: 0 0 2px 0;
+            font-size: 12px;
+            color: grey;
+        }
+
+        .disclaimer {
+            margin: 0;
+            font-size: 12px;
+            color: grey;
+        }
+
+        .legend-title {
+            font-weight: bold;
+            font-size: 15px;
+            margin: 10px 0 0 0;
+            padding: 0;
+        }
+
+        .legend-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .legend-color-box {
+            width: 20px;
+            height: 20px;
+            margin-right: 6px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.bundled.js"></script>
+
+</head>
+
+<body>
+    <div id="map">
+        {{ folium_map|safe }}
+    </div>
+
+    <!-- Add the legend -->
+    
+        <!-- Results panel -->
+        <div class="results-panel">
+            <div class="title">Results</div>
+            <div class="label">Flood status between:</div>
+            <div class="number">{{ after_start }} and {{ after_end }}</div>
+            <div class="label">Estimated flood extent:</div>
+            <div class="sub-text">based on Senintel-1 imagery {{after_c}} </div>
+            <div class="number">{{f_hect}} hectares</div>
+            <div class="label">Estimated number of exposed people:</div>
+            <div class="sub-text">based on GHSL 2015 (250m)</div>
+            <div class="number">{{population}}</div>
+            <div class="label">Estimated affected cropland:</div>
+            <div class="sub-text">based on MODIS Land Cover {{MODIS_d}} (500m)</div>
+            <div class="number">{{crop_ha}} hectares</div>
+            <div class="label">Estimated affected urban areas:</div>
+            <div class="sub-text">based on MODIS Land Cover {{MODIS_d}} (500m)</div>
+            <div class="number">{{urban_a}} hectares</div>
+            <p class="disclaimer">Disclaimer: This product has been derived automatically without validation data. All
+                geographic information has limitations due to the scale, resolution, date, and interpretation of the
+                original source materials. No liability concerning the content or the use thereof is assumed by the
+                producer.</p>
+            <p class="disclaimer">Script produced by: AFFLUX 2019-23 CSE batch PEC</p>
+        </div>
+
+        <!-- Legend panel -->
+        <div class="legend-panel">
+            <div class="legend-title">Legend</div>
+            <div class="legend-row">
+                <div class="legend-color-box" style="background-color: #0000FF;"></div>
+                <div>potentially flooded areas</div>
+            </div>
+            <div class="legend-row">
+                <div class="legend-color-box" style="background-color: #30b21c;"></div>
+                <div>affected cropland</div>
+            </div>
+            <div class="legend-row">
+                <div class="legend-color-box" style="background-color: grey;"></div>
+                <div>affected urban areas</div>
+            </div>
+            <div class="legend-title">Exposed population density</div>
+            <div class="legend-row">
+                <div class="legend-color-box" style="background-color: rgba(225, 79, 16, 0.957);"></div>
+                <div>Most affected</div>
+            </div>
+            <div class="legend-row">
+                <div class="legend-color-box" style="background-color: rgb(240, 221, 13);"></div>
+                <div>Least affected</div>
+            </div>
+        </div>
+    
+    <script>
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login AFFLUX</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signlog.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+
+<body>
+
+    <h2>Welcome To AFFLUX</h2>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="/signlog" method="POST">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="https://www.facebook.com/cepathanapuram?mibextid=ZbWKwL" class="social" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/ce_pathanapuram?igshid=MzRlODBiNWFlZA==" class="social" target="_blank"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="https://www.linkedin.com/school/college-of-engineering-pathanapuram/" class="social" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" name="name" required />
+                <input type="email" placeholder="Email" name="email" required/>
+                <input type="password" placeholder="Password a-z, A-Z, 0-9, symbols, and a minimum of 8 characters." name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&\u0020-\u007E]{8,}$" required/>
+                {% if error %}
+                <p class="error-message" style="color: red;">{{ error }}</p>
+                {% endif %}
+                <button name="signup">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container" {% if show_login %}style="display: block;" {% endif %}>
+            <form action="/signlog" method="POST">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="https://www.facebook.com/cepathanapuram?mibextid=ZbWKwL" class="social" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/ce_pathanapuram?igshid=MzRlODBiNWFlZA==" class="social" target="_blank"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="https://www.linkedin.com/school/college-of-engineering-pathanapuram/" class="social" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <!-- Add this section in your 'signlog.html' template -->
+                {% if error %}
+                <p class="error-message" style="color: red;">{{ error }}</p>
+                {% endif %}
+                <input type="email" placeholder="Email" name="email" required/>
+                <input type="password" placeholder="Password" name="password" required/>
+                <a href="#">Forgot your password?</a>
+                <button name="login">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            AFFLUX
+        </p>
+    </footer>
+    <script type="text/javascript" src="../static/js/signlog.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AFFLUX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <img class="logo" src="static/img/h1.png" alt="AFFLUX LOGO" height="70px" width="210px">
+            </div>
+            
+
+            <img src="static/img/e3.jpg" alt="Background Image" class="background-image">
+
+            <form action="process_form" method="post">
+                <div class="form">
+
+                    <h2>Enter the details</h2>
+
+                    <input list="places" name="place" id="browser" placeholder="Place of Occurrence">
+                    <datalist id="places">
+                        <option value="Thiruvananthapuram">
+                        <option value="Kollam">
+                        <option value="Dubai">
+                        <option value="United Arab Emirates">
+                        <option value="Pattanamtitta">
+                        <option value="Alappuzha">
+                        <option value="Kottayam">
+                        <option value="Idukki">
+                        <option value="Ernakulam">
+                        <option value="Thrissur">
+                        <option value="Palakkad">
+                        <option value="Malappuram">
+                        <option value="Kozhikode">
+                        <option value="Wayanad">
+                        <option value="Kannur">
+                        <option value="Kasaragod">
+                    </datalist>
+                    <input type="date" name="startdate" placeholder="Start Date " required>
+                    <input type="date" name="enddate" placeholder="End Date " required>
+                    <button class="btnn"><a href="#">Submit</a></button>
+
+                </div>
+
+            </form>
+
+
+        </div>
+
+        <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+
+</html>

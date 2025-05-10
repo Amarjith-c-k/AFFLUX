@@ -1,0 +1,22 @@
+<!DOCTYPE html>>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <tit1e>Loading Animation</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+    <div class="center">
+        <div class="ring"></div>
+        <span> <img src="static/img/h.png" alt="logo"  width="200" height="200"> </span>
+    </div>
+    <script>
+        setTimeout(function() {
+            window.location.href = '{{ url_for("signlog") }}';
+        }, 2000);  // 5000 milliseconds =  seconds
+    </script>
+</body>
+
+</html>
